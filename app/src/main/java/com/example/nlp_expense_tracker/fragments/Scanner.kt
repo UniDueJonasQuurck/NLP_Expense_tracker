@@ -8,11 +8,13 @@ import android.content.Intent
 import android.content.pm.PackageManager
 import android.graphics.Bitmap
 import android.graphics.BitmapFactory
+import android.os.Build
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.*
+import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
@@ -121,6 +123,7 @@ class Scanner : Fragment() {
         }
     }
 
+    @RequiresApi(Build.VERSION_CODES.O)
     private fun textRecognitionAction() {
 
         var text = ""
@@ -191,7 +194,7 @@ class Scanner : Fragment() {
 
     fun showDialogGallery(){
         if (dialogStatus) {
-            startCamera()
+            startGallery()
             return
         }
         val mainView = requireActivity().layoutInflater.inflate(R.layout.alert, null)

@@ -8,9 +8,11 @@ import android.os.Environment
 import android.provider.MediaStore
 import androidx.annotation.RequiresApi
 import androidx.core.content.FileProvider
+import com.example.nlp_expense_tracker.Database.Receipts
 import com.example.nlp_expense_tracker.fragments.findFloat
 import com.example.nlp_expense_tracker.fragments.getBetrag
 import com.example.nlp_expense_tracker.fragments.getGeschäft
+import com.example.nlp_expense_tracker.fragments.getStore
 import com.google.mlkit.vision.text.TextRecognition
 import com.google.mlkit.vision.text.TextRecognizerOptions
 import java.io.File
@@ -21,7 +23,7 @@ import java.util.*
 import javax.inject.Inject
 
 
-class ReceiptsViewModel @Inject constructor() {
+class ReceiptsViewModel () {
 
 
     lateinit var imageURI: Uri
@@ -54,12 +56,12 @@ class ReceiptsViewModel @Inject constructor() {
     @RequiresApi(Build.VERSION_CODES.O)
     fun getReceipts(text: String): Receipts {
         val originalResult = text.findFloat()
-        if (originalResult.isEmpty()) return Receipts()
+        if (originalResult.isEmpty()) return Receipts("test","test","test")
         else {
-            val receipts = Receipts()
+            val receipts = Receipts("test","test","test")
             val currentDateTime = LocalDateTime.now()
             receipts.total = text.getBetrag()
-            receipts.store = text.getGeschäft()
+            receipts.store = text.getStore()
             receipts.date = currentDateTime.format(DateTimeFormatter.ofPattern("dd.MM.yyyy"))
             return receipts
         }

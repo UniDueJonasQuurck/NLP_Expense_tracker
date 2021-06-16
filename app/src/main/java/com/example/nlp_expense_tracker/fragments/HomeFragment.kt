@@ -9,10 +9,15 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
+import androidx.fragment.app.viewModels
 import androidx.viewpager.widget.ViewPager
 import com.example.nlp_expense_tracker.R
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class HomeFragment : Fragment() {
+
+    private val viewModel: PurchaseViewmodel by viewModels()
 
     private lateinit var monthlyExpense: TextView
     private lateinit var recentPurchase1: TextView

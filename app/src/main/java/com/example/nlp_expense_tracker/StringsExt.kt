@@ -20,7 +20,7 @@ fun String.getBetrag(): String {
     return this.split("\n").let {it[it.size -2]}
 }
 
-fun String.getGeschäft(): String { ///Aus dem Input wird mit .split eine Liset von Strigns erstellt, wir lassen uns die betimmte stelle aus dem Array gegeben
+fun String.getStore(): String { ///Aus dem Input wird mit .split eine Liset von Strigns erstellt, wir lassen uns die betimmte stelle aus dem Array gegeben
     if (this.isEmpty()) return ""
     return this.split("\n").get(0)
 }
@@ -28,5 +28,5 @@ fun String.getGeschäft(): String { ///Aus dem Input wird mit .split eine Liset 
 
 
 private fun String.isFloatAndWhole() = this.matches("\\d*\\.\\d*".toRegex())
-private fun String.isDate() = this.matches("^\\s*(3[01]|[12][0-9]|0?[1-9])\\.(1[012]|0?[1-9])\\.((?:19|20)\\d{2})\\s*\$".toRegex()) // \d Zahl zwischen 0-9, \\. = Komma
+
 

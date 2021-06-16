@@ -10,10 +10,11 @@ import com.example.nlp_expense_tracker.fragments.adapters.ViewPagerAdapter
 import com.google.android.material.tabs.TabLayout
 
 import com.example.nlp_expense_tracker.fragments.Scanner
+import dagger.hilt.android.AndroidEntryPoint
 import java.io.File
 import javax.inject.Inject
 
-
+@AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
 
 
@@ -39,16 +40,5 @@ class MainActivity : AppCompatActivity() {
         tabs.getTabAt(1)!!.setIcon(R.drawable.ic_baseline_show_chart_24)
         tabs.getTabAt(2)!!.setIcon(R.drawable.ic_baseline_add_shopping_cart_24)
     }
-    companion object {
 
-        /** Use external media if it is available, our app's file directory otherwise */
-        fun getOutputDirectory(context: Context): File {
-            val appContext = context.applicationContext
-            val mediaDir = context.externalMediaDirs.firstOrNull()?.let {
-                File(it, appContext.resources.getString(R.string.app_name)).apply { mkdirs() }
-            }
-            return if (mediaDir != null && mediaDir.exists())
-                mediaDir else appContext.filesDir
-        }
-    }
 }

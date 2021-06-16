@@ -1,38 +1,43 @@
 package com.example.nlp_expense_tracker.fragments.History
 
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
-import android.widget.TextView
+import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
-import com.example.nlp_expense_tracker.R
-import com.example.nlp_expense_tracker.databinding.FragmentScanBinding
+import com.example.nlp_expense_tracker.Database.Receipts
+import com.example.nlp_expense_tracker.databinding.ReceiptsBinding
 
-class ExampleAdapter (private val exampleList: List<ExamplePurchase>):RecyclerView.Adapter<ExampleAdapter.ExampleViewHolder>() {
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ExampleViewHolder {
-        val itemView = LayoutInflater.from(parent.context).inflate(
-            R.layout.example_purchase,
-            parent,false)
+class ExampleAdapter : ListAdapter<Receipts,ExampleAdapter.ExampleViewHolder>(DiffCallback()) {
 
-        return ExampleViewHolder(itemView)
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ExampleViewHolder { // Basically how to get a new Item from the List and display it
+        val binding = ReceiptsBinding.inflate(LayoutInflater.from(parent.context),parent,false)
+        return ExampleViewHolder(binding)
     }
 
     override fun onBindViewHolder(holder: ExampleViewHolder, position: Int) {
-        val currentItem = exampleList[position]
-
-        holder.store_history.text =currentItem.store
-        holder.amount_history.text = currentItem.amount
-        holder.date_history.text = currentItem.date
+        val currentItem = getItem(position)
+        holder.bind(currentItem)
     }
 
-    override fun getItemCount() = exampleList.size
 
-    class ExampleViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView){ //Examples One Row in our list
-        val store_history: TextView = itemView.findViewById(R.id.store_history)
-        val amount_history: TextView = itemView.findViewById(R.id.amount_history)
-        val date_history: TextView = itemView.findViewById(R.id.date_history)
+    class ExampleViewHolder(private val binding: ReceiptsBinding) : RecyclerView.ViewHolder(binding.root){ //Examples One Row in our list
+        fun bind (receipts: Receipts) {
+            binding.apply {
+                storeHistory.text = receipts.store
+                amountHistory.text = receipts.total
+                dateHistory.text  = receipts.date
+            }
+        }
+    }
+    class DiffCallback : DiffUtil.ItemCallback<Receipts>() {
+        override fun areItemsTheSame(oldItem: Receipts, newItem: Receipts) =
+            oldItem.id == newItem.id
+
+
+        override fun areContentsTheSame(oldItem: Receipts, newItem: Receipts) =
+            oldItem == newItem
     }
 
 }
