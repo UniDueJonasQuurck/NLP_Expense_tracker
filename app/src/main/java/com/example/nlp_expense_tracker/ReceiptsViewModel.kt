@@ -11,7 +11,6 @@ import androidx.core.content.FileProvider
 import com.example.nlp_expense_tracker.Database.Receipts
 import com.example.nlp_expense_tracker.fragments.findFloat
 import com.example.nlp_expense_tracker.fragments.getBetrag
-import com.example.nlp_expense_tracker.fragments.getGeschäft
 import com.example.nlp_expense_tracker.fragments.getStore
 import com.google.mlkit.vision.text.TextRecognition
 import com.google.mlkit.vision.text.TextRecognizerOptions

@@ -1,9 +1,8 @@
-package com.example.nlp_expense_tracker.fragments
+package com.example.nlp_expense_tracker.fragments.Camera
 
 import android.Manifest
 import android.app.Activity
 import android.app.AlertDialog
-import android.content.DialogInterface
 import android.content.Intent
 import android.content.pm.PackageManager
 import android.graphics.Bitmap
@@ -19,19 +18,22 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import androidx.core.os.bundleOf
+import androidx.core.widget.addTextChangedListener
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.setFragmentResult
+import androidx.fragment.app.viewModels
+import androidx.lifecycle.lifecycleScope
 import com.example.nlp_expense_tracker.R
 import com.example.nlp_expense_tracker.ReceiptsViewModel
+import com.google.android.material.snackbar.Snackbar
 import com.google.mlkit.vision.common.InputImage
 import com.squareup.picasso.Picasso
+import dagger.hilt.android.AndroidEntryPoint
+import kotlinx.coroutines.flow.collect
 import java.io.FileNotFoundException
 
-
+@AndroidEntryPoint
 class Scanner : Fragment() {
-    private  var EXTRA_STORE : String = "package com.example.nlp_expense_tracker.fragments.EXTRA_STORE"
-    private  var EXTRA_DATE : String = "package com.example.nlp_expense_tracker.fragments.EXTRA_DATE"
-    private  var EXTRA_TOTAL : String = "package com.example.nlp_expense_tracker.fragments:EXTRA:TOTAL"
 
     private lateinit var imageView: ImageView
     private lateinit var photoImage: Bitmap
@@ -45,6 +47,7 @@ class Scanner : Fragment() {
     private val REQUEST_CODE_GALLERY = 69
     private val CAMERA_PERMISSION_CODE = 100
     private lateinit var  receiptsViewModel: ReceiptsViewModel
+    private val viewModel: ScannerViewModel by viewModels()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -76,8 +79,37 @@ class Scanner : Fragment() {
         }
         //Confirm Button, mit dem der Text aus den EditText's übermittel wird.
         confirmButton.setOnClickListener{
-            confirmPurchase()
+            viewModel.onSaveClick()
         }
+
+        editDate.addTextChangedListener {
+            viewModel.date = it.toString()
+        }
+        editStore.addTextChangedListener {
+            viewModel.store = it.toString()
+        }
+        editTotal.addTextChangedListener {
+            viewModel.total = it.toString()
+        }
+
+        viewLifecycleOwner.lifecycleScope.launchWhenStarted {
+            viewModel.tasksEvent.collect { event->
+                when (event) {
+                    is ScannerViewModel.TasksEvent.ShowInvalidInputMessage->{
+                        Snackbar.make(requireView(),event.msg,Snackbar.LENGTH_LONG).show()
+                    }
+                    is ScannerViewModel.TasksEvent.NavigateBackWithResult ->{
+                        editStore.clearFocus()
+                        editTotal.clearFocus()
+                        editDate.clearFocus()
+                        setFragmentResult("add_receipt_request",
+                            bundleOf("add_receipt_request" to event.result)
+                        )
+                    }
+                }
+            }
+        }
+
         return view
     }
 
@@ -88,19 +120,6 @@ class Scanner : Fragment() {
         editTotal.setText("")
     }
 
-    private fun confirmPurchase() {
-        val result = editStore.getText().toString()
-        val result2 = editTotal.getText().toString()
-        val result3  = editDate.getText().toString()
-        setFragmentResult("requestKey", bundleOf("bundleKey" to result))
-        setFragmentResult("requestKey2", bundleOf("bundleKey2" to result2))
-        setFragmentResult("requestKey3", bundleOf("bundleKey3" to result3))
-
-        if(result.trim().isEmpty()||result2.trim().isEmpty()||result3.trim().isEmpty()){ ///Wenn eins der Textfelder leer ist kommt die Toast message
-            Toast.makeText(requireActivity(), "Please fill out all three fields.",Toast.LENGTH_SHORT)
-            return
-        }
-    }
 
     private fun uploadAction(data: Intent) {
         try {
@@ -135,7 +154,6 @@ class Scanner : Fragment() {
                 editTotal.setText(receipts.total, TextView.BufferType.EDITABLE)
                 editStore.setText(receipts.store, TextView.BufferType.EDITABLE)
                 editDate.setText(receipts.date, TextView.BufferType.EDITABLE)
-
             }
     }
 

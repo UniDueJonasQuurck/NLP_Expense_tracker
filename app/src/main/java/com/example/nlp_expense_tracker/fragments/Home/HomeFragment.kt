@@ -1,4 +1,4 @@
-package com.example.nlp_expense_tracker.fragments
+package com.example.nlp_expense_tracker.fragments.Home
 
 import android.os.Bundle
 import android.text.Spannable
@@ -12,6 +12,7 @@ import android.widget.TextView
 import androidx.fragment.app.viewModels
 import androidx.viewpager.widget.ViewPager
 import com.example.nlp_expense_tracker.R
+import com.example.nlp_expense_tracker.fragments.PurchaseViewmodel
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint

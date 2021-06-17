@@ -1,23 +1,18 @@
-package com.example.nlp_expense_tracker.fragments
+package com.example.nlp_expense_tracker.fragments.History
 
 import android.os.Bundle
-import android.view.LayoutInflater
 import androidx.fragment.app.Fragment
 
 import android.view.View
-import android.view.ViewGroup
-import android.widget.TextView
+import androidx.fragment.app.setFragmentResultListener
 
 import androidx.fragment.app.viewModels
 
 import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
 import com.example.nlp_expense_tracker.R
 
-import com.example.nlp_expense_tracker.fragments.History.ExampleAdapter
-
 import com.example.nlp_expense_tracker.databinding.FragmentHistoryBinding
-import dagger.Provides
+import com.example.nlp_expense_tracker.fragments.PurchaseViewmodel
 
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -26,6 +21,8 @@ import dagger.hilt.android.AndroidEntryPoint
 class HistoryFragment : Fragment(R.layout.fragment_history) {
 
     private val viewModel: PurchaseViewmodel by viewModels()
+
+
 
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -43,6 +40,12 @@ class HistoryFragment : Fragment(R.layout.fragment_history) {
                 setHasFixedSize(true)
             }
         }
+
+        setFragmentResultListener("add_receipt_request"){_,bundle ->
+            val result = bundle.getInt("add_receipt_request")
+            viewModel.onAddResult(result)
+        }
+
         viewModel.receipts.observe(viewLifecycleOwner){ /// New Items get passed to the List
             exampleAdapter.submitList(it)
         }

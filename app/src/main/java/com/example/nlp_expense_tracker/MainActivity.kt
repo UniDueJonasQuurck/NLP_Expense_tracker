@@ -1,18 +1,16 @@
 package com.example.nlp_expense_tracker
 
-import android.content.Context
+import android.app.Activity
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.viewpager.widget.ViewPager
-import com.example.nlp_expense_tracker.fragments.HistoryFragment
-import com.example.nlp_expense_tracker.fragments.HomeFragment
+import com.example.nlp_expense_tracker.fragments.Home.HomeFragment
 import com.example.nlp_expense_tracker.fragments.adapters.ViewPagerAdapter
 import com.google.android.material.tabs.TabLayout
 
-import com.example.nlp_expense_tracker.fragments.Scanner
+import com.example.nlp_expense_tracker.fragments.Camera.Scanner
+import com.example.nlp_expense_tracker.fragments.History.HistoryFragment
 import dagger.hilt.android.AndroidEntryPoint
-import java.io.File
-import javax.inject.Inject
 
 @AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
@@ -42,3 +40,5 @@ class MainActivity : AppCompatActivity() {
     }
 
 }
+
+const val ADD_RECEIPT_RESULT_OK = Activity.RESULT_FIRST_USER

@@ -21,6 +21,9 @@ class ExampleAdapter : ListAdapter<Receipts,ExampleAdapter.ExampleViewHolder>(Di
         holder.bind(currentItem)
     }
 
+    override fun getItemCount(): Int {
+        return super.getItemCount()
+    }
 
     class ExampleViewHolder(private val binding: ReceiptsBinding) : RecyclerView.ViewHolder(binding.root){ //Examples One Row in our list
         fun bind (receipts: Receipts) {
