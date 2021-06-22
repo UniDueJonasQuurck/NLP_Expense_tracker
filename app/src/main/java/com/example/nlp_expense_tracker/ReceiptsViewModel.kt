@@ -55,9 +55,9 @@ class ReceiptsViewModel () {
     @RequiresApi(Build.VERSION_CODES.O)
     fun getReceipts(text: String): Receipts {
         val originalResult = text.findFloat()
-        if (originalResult.isEmpty()) return Receipts("test","test","test")
+        if (originalResult.isEmpty()) return Receipts("Text not recognized","Text not recognized","Text not recognized")
         else {
-            val receipts = Receipts("test","test","test")
+            val receipts = Receipts("Text not recognized","Text not recognized","Text not recognized")
             val currentDateTime = LocalDateTime.now()
             receipts.total = text.getBetrag()
             receipts.store = text.getStore()

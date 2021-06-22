@@ -12,7 +12,7 @@ import android.widget.TextView
 import androidx.fragment.app.viewModels
 import androidx.viewpager.widget.ViewPager
 import com.example.nlp_expense_tracker.R
-import com.example.nlp_expense_tracker.fragments.PurchaseViewmodel
+import com.example.nlp_expense_tracker.fragments.History.PurchaseViewmodel
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -45,16 +45,16 @@ class HomeFragment : Fragment() {
         recentPurchase4 = view.findViewById(R.id.recentPurchase4)
 
         recentPurchase1.setOnClickListener {
-            viewPager.setCurrentItem(1)
+            viewPager.setCurrentItem(2)
         }
         recentPurchase2.setOnClickListener {
-            viewPager.setCurrentItem(1)
+            viewPager.setCurrentItem(2)
         }
         recentPurchase3.setOnClickListener {
-            viewPager.setCurrentItem(1)
+            viewPager.setCurrentItem(2)
         }
         recentPurchase4.setOnClickListener {
-            viewPager.setCurrentItem(1)
+            viewPager.setCurrentItem(2)
         }
 
         textTwoSpan()

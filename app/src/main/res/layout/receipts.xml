@@ -25,20 +25,20 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             android:layout_marginLeft="5dp"
-            android:textColor="@color/black"/>
+            android:textColor="@color/black"
+            />
 
         <TextView
             android:id="@+id/amount_history"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="40dp"
-            android:layout_marginLeft="40dp"
             android:layout_toEndOf="@+id/date_history"
             android:text="Amount"
+            android:textColor="@color/black"
             android:textSize="18sp"
-            app:layout_constraintStart_toEndOf="@+id/date_history"
+            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            android:textColor="@color/black"/>
+            android:layout_marginLeft="100dp"/>
 
         <TextView
             android:id="@+id/date_history"
@@ -46,13 +46,11 @@
             android:layout_height="wrap_content"
             android:layout_toEndOf="@+id/store_history"
             android:text="Date"
+            android:textColor="@color/black"
             android:textSize="18sp"
-            android:layout_marginStart="40dp"
-            app:layout_constraintStart_toEndOf="@+id/store_history"
+            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            android:textColor="@color/black"/>
-
-
+            android:layout_marginLeft="230dp"/>
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>>

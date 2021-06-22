@@ -12,12 +12,12 @@ import javax.inject.Qualifier
 import javax.inject.Singleton
 
 @Module
-@InstallIn(SingletonComponent::class)
+@InstallIn(SingletonComponent::class) //database is created for the whole app, not only one activity
 object AppModule {
 
     @Provides
-    @Singleton
-    fun provideDatabase(
+    @Singleton //only one instance of database is created
+    fun provideDatabase( //Code that constructs database
         app: Application,
         callback: ReceiptDatabase.Callback
     ) = Room.databaseBuilder(app, ReceiptDatabase::class.java, "receipt_database")
@@ -25,7 +25,7 @@ object AppModule {
         .addCallback(callback)
         .build()
 
-    @Provides
+    @Provides //Creates TaskDao to access database
     fun provideTaskDao(db: ReceiptDatabase) = db.receiptDao()
 
     @ApplicationScope
@@ -34,6 +34,6 @@ object AppModule {
     fun provideApplicationScope() = CoroutineScope(SupervisorJob())
 }
 
-@Retention(AnnotationRetention.RUNTIME)
+@Retention(AnnotationRetention.RUNTIME) ///Makes sure that there is only one Courotine Scope in the whole Application
 @Qualifier
 annotation class ApplicationScope

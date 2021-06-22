@@ -21,10 +21,6 @@ class ExampleAdapter : ListAdapter<Receipts,ExampleAdapter.ExampleViewHolder>(Di
         holder.bind(currentItem)
     }
 
-    override fun getItemCount(): Int {
-        return super.getItemCount()
-    }
-
     class ExampleViewHolder(private val binding: ReceiptsBinding) : RecyclerView.ViewHolder(binding.root){ //Examples One Row in our list
         fun bind (receipts: Receipts) {
             binding.apply {
@@ -34,6 +30,8 @@ class ExampleAdapter : ListAdapter<Receipts,ExampleAdapter.ExampleViewHolder>(Di
             }
         }
     }
+
+
     class DiffCallback : DiffUtil.ItemCallback<Receipts>() {
         override fun areItemsTheSame(oldItem: Receipts, newItem: Receipts) =
             oldItem.id == newItem.id
@@ -41,6 +39,9 @@ class ExampleAdapter : ListAdapter<Receipts,ExampleAdapter.ExampleViewHolder>(Di
 
         override fun areContentsTheSame(oldItem: Receipts, newItem: Receipts) =
             oldItem == newItem
+                    && oldItem.total == newItem.total
+                    && oldItem.date == newItem.date
+                    && oldItem.store == newItem.store
     }
 
 }

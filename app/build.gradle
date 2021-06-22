@@ -3,7 +3,7 @@ plugins {
     id 'kotlin-android'
     id "kotlin-kapt"
     id 'dagger.hilt.android.plugin'
- id "kotlin-parcelize"
+    id "kotlin-parcelize"
 }
 
 android {
@@ -123,6 +123,10 @@ dependencies {
 
     // optional - Test helpers
     testImplementation("androidx.room:room-testing:$room_version")
+
+    //Splashscreen
+    def lottieVersion = "3.7.0"
+    implementation "com.airbnb.android:lottie:$lottieVersion"
 
 
 }

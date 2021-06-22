@@ -31,11 +31,12 @@
 
     </com.google.android.material.appbar.AppBarLayout>
 
-<androidx.viewpager.widget.ViewPager
+<com.example.nlp_expense_tracker.ViewPagerCustom
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:id="@+id/viewPager"
-    android:layout_below="@+id/appBarLayout"/>
+    android:layout_below="@+id/appBarLayout"
+    />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

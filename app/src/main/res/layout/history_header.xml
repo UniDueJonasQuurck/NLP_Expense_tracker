@@ -8,37 +8,23 @@
     android:padding="8dp">
 
     <TextView
-        android:id="@+id/headerStore"
+        android:id="@+id/headerText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Store"
+        android:text="Total amount spent:"
+        android:textColor="@color/black"
+        android:textSize="20dp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:textSize="20dp"
-        android:textColor="@color/black"
-        android:layout_marginLeft="5dp"
-
-        />
-
-    <TextView
-        android:id="@+id/headerDate"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="40dp"
-        android:text="Date"
-        android:textColor="@color/black"
-        android:textSize="20dp"
-        app:layout_constraintStart_toEndOf="@+id/headerStore"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/headerToal"
+        android:layout_marginLeft="10dp"
+        android:id="@+id/headerTotal"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Total"
+        android:text="24,97 € "
         android:textColor="@color/black"
         android:textSize="20dp"
-        android:layout_marginStart="40dp"
-        app:layout_constraintStart_toEndOf="@+id/headerDate"
+        app:layout_constraintStart_toEndOf="@+id/headerText"
         app:layout_constraintTop_toTopOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>

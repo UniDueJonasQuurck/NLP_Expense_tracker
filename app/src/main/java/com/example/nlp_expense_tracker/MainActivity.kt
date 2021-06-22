@@ -30,13 +30,13 @@ class MainActivity : AppCompatActivity() {
     private fun setUpTabs(){
         val adapter = ViewPagerAdapter(supportFragmentManager)
         adapter.addFragment(HomeFragment(),"")
-        adapter.addFragment(HistoryFragment(),"")
         adapter.addFragment(Scanner(),"")
+        adapter.addFragment(HistoryFragment(),"")
         viewPager.adapter = adapter
         tabs.setupWithViewPager(viewPager)
         tabs.getTabAt(0)!!.setIcon(R.drawable.ic_baseline_home_24)
-        tabs.getTabAt(1)!!.setIcon(R.drawable.ic_baseline_show_chart_24)
-        tabs.getTabAt(2)!!.setIcon(R.drawable.ic_baseline_add_shopping_cart_24)
+        tabs.getTabAt(2)!!.setIcon(R.drawable.ic_baseline_show_chart_24)
+        tabs.getTabAt(1)!!.setIcon(R.drawable.ic_baseline_add_shopping_cart_24)
     }
 
 }

@@ -23,6 +23,8 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.setFragmentResult
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
+import androidx.navigation.fragment.findNavController
+import androidx.viewpager.widget.ViewPager
 import com.example.nlp_expense_tracker.R
 import com.example.nlp_expense_tracker.ReceiptsViewModel
 import com.google.android.material.snackbar.Snackbar
@@ -48,6 +50,7 @@ class Scanner : Fragment() {
     private val CAMERA_PERMISSION_CODE = 100
     private lateinit var  receiptsViewModel: ReceiptsViewModel
     private val viewModel: ScannerViewModel by viewModels()
+    private lateinit var viewPager: ViewPager
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -66,6 +69,7 @@ class Scanner : Fragment() {
         editDate = view.findViewById(R.id.editDate)
         receiptsViewModel = ReceiptsViewModel()
         pb = view.findViewById(R.id.progressBar)
+        viewPager = requireActivity().findViewById(R.id.viewPager)
 
         
         //Button Picture
@@ -80,10 +84,11 @@ class Scanner : Fragment() {
         //Confirm Button, mit dem der Text aus den EditText's übermittel wird.
         confirmButton.setOnClickListener{
             viewModel.onSaveClick()
+            viewPager.setCurrentItem(2)
         }
 
         editDate.addTextChangedListener {
-            viewModel.date = it.toString()
+            viewModel.date = it.toString() //Updates viewmodel with the new value
         }
         editStore.addTextChangedListener {
             viewModel.store = it.toString()
@@ -99,9 +104,6 @@ class Scanner : Fragment() {
                         Snackbar.make(requireView(),event.msg,Snackbar.LENGTH_LONG).show()
                     }
                     is ScannerViewModel.TasksEvent.NavigateBackWithResult ->{
-                        editStore.clearFocus()
-                        editTotal.clearFocus()
-                        editDate.clearFocus()
                         setFragmentResult("add_receipt_request",
                             bundleOf("add_receipt_request" to event.result)
                         )
@@ -110,8 +112,11 @@ class Scanner : Fragment() {
             }
         }
 
+
         return view
     }
+
+
 
     override fun onResume() { //clears textfields when switching between tabs
         super.onResume();
@@ -151,8 +156,8 @@ class Scanner : Fragment() {
                 pb.visibility = View.GONE
                 for (block in it.textBlocks) text += block.text + "\n"
                 val receipts = receiptsViewModel.getReceipts(text)
-                editTotal.setText(receipts.total, TextView.BufferType.EDITABLE)
-                editStore.setText(receipts.store, TextView.BufferType.EDITABLE)
+                editTotal.setText(receipts.total.replace("EUR",""), TextView.BufferType.EDITABLE)
+                editStore.setText(receipts.store.lowercase().replaceFirstChar { it.uppercase() }, TextView.BufferType.EDITABLE)
                 editDate.setText(receipts.date, TextView.BufferType.EDITABLE)
             }
     }
