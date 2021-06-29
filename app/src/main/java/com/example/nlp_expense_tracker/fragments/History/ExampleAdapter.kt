@@ -31,7 +31,6 @@ class ExampleAdapter : ListAdapter<Receipts,ExampleAdapter.ExampleViewHolder>(Di
         }
     }
 
-
     class DiffCallback : DiffUtil.ItemCallback<Receipts>() {
         override fun areItemsTheSame(oldItem: Receipts, newItem: Receipts) =
             oldItem.id == newItem.id
@@ -43,5 +42,4 @@ class ExampleAdapter : ListAdapter<Receipts,ExampleAdapter.ExampleViewHolder>(Di
                     && oldItem.date == newItem.date
                     && oldItem.store == newItem.store
     }
-
 }

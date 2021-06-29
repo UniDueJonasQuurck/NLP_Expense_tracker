@@ -156,7 +156,7 @@ class Scanner : Fragment() {
                 pb.visibility = View.GONE
                 for (block in it.textBlocks) text += block.text + "\n"
                 val receipts = receiptsViewModel.getReceipts(text)
-                editTotal.setText(receipts.total.replace("EUR",""), TextView.BufferType.EDITABLE)
+                editTotal.setText(receipts.total.replace("EUR"," €"), TextView.BufferType.EDITABLE)
                 editStore.setText(receipts.store.lowercase().replaceFirstChar { it.uppercase() }, TextView.BufferType.EDITABLE)
                 editDate.setText(receipts.date, TextView.BufferType.EDITABLE)
             }

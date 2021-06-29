@@ -3,12 +3,12 @@ package com.example.nlp_expense_tracker.fragments.Camera
 import androidx.lifecycle.SavedStateHandle
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import androidx.viewpager.widget.ViewPager
 import com.example.nlp_expense_tracker.ADD_RECEIPT_RESULT_OK
 import com.example.nlp_expense_tracker.Database.ReceiptDao
 import com.example.nlp_expense_tracker.Database.Receipts
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.channels.Channel
+import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.receiveAsFlow
 import kotlinx.coroutines.launch
 import javax.inject.Inject
@@ -49,14 +49,12 @@ class ScannerViewModel @Inject constructor(
         if (date.isBlank()){
             showInvalidInputMessage("Date cannot be empty")
         }
-        if (total.isBlank()){
-            showInvalidInputMessage("Total cannot be empty")
-        }
         else{
-            val newReceipt = Receipts(store = store,total = total,date = date)
+            val newReceipt = Receipts(store = store,total = total ,date = date)
             createReceipt(newReceipt)
         }
     }
+
     private fun createReceipt(receipts: Receipts) = viewModelScope.launch {
             receiptDao.insert(receipts)
 
@@ -76,7 +74,6 @@ class ScannerViewModel @Inject constructor(
     sealed class TasksEvent{
         data class ShowInvalidInputMessage(val msg: String) : TasksEvent()
         data class NavigateBackWithResult (val result: Int): TasksEvent()
-        data class ShowReceiptSavedConfirmation(val msg: String) : ScannerViewModel.TasksEvent()
     }
 
 
