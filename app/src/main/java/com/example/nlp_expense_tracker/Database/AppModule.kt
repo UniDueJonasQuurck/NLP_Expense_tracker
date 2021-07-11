@@ -23,6 +23,7 @@ object AppModule {
     ) = Room.databaseBuilder(app, ReceiptDatabase::class.java, "receipt_database")
         .fallbackToDestructiveMigration()
         .addCallback(callback)
+        .allowMainThreadQueries()
         .build()
 
     @Provides //Creates TaskDao to access database

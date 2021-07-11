@@ -7,7 +7,6 @@
     tools:context=".MainActivity"
     android:background="@drawable/backgroundcolor">
 
-
     <com.google.android.material.appbar.AppBarLayout
         android:id="@+id/appBarLayout"
         android:layout_width="match_parent"
@@ -36,7 +35,12 @@
     android:layout_height="match_parent"
     android:id="@+id/viewPager"
     android:layout_below="@+id/appBarLayout"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
     />
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/fragmentChart"/>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

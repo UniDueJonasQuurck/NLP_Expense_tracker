@@ -5,18 +5,22 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.FragmentTransaction
 import androidx.fragment.app.setFragmentResultListener
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
+import androidx.navigation.findNavController
 import androidx.recyclerview.widget.ConcatAdapter
 import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import androidx.viewpager.widget.ViewPager
 import com.example.nlp_expense_tracker.Database.ReceiptDao
 import com.example.nlp_expense_tracker.Database.ReceiptDatabase
 import com.example.nlp_expense_tracker.Database.Receipts
 import com.example.nlp_expense_tracker.R
 import com.example.nlp_expense_tracker.databinding.FragmentHistoryBinding
+import com.example.nlp_expense_tracker.fragments.Graph.ChartFragment
 import com.google.android.material.snackbar.Snackbar
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.flow.Flow
@@ -68,6 +72,12 @@ class HistoryFragment : Fragment(R.layout.fragment_history) {
                 }
             }).attachToRecyclerView(recyclerView)
 
+            buttonChart.apply {
+                setOnClickListener {
+                   replaceFragment(ChartFragment())
+                }
+            }
+
         }
 
 
@@ -93,5 +103,10 @@ class HistoryFragment : Fragment(R.layout.fragment_history) {
                 }
             }
         }
+    }
+    private fun replaceFragment(fragment: Fragment) {
+        val transaction = requireActivity().supportFragmentManager.beginTransaction()
+        transaction.replace(R.id.fragmentChart, fragment)
+        transaction.commitNowAllowingStateLoss()
     }
 }

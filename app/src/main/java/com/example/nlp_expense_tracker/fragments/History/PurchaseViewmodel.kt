@@ -5,10 +5,11 @@ import androidx.lifecycle.asLiveData
 import androidx.lifecycle.viewModelScope
 import com.example.nlp_expense_tracker.ADD_RECEIPT_RESULT_OK
 import com.example.nlp_expense_tracker.Database.ReceiptDao
+import com.example.nlp_expense_tracker.Database.ReceiptDatabase
 import com.example.nlp_expense_tracker.Database.Receipts
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.channels.Channel
-import kotlinx.coroutines.flow.receiveAsFlow
+import kotlinx.coroutines.flow.*
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
@@ -20,6 +21,7 @@ class PurchaseViewmodel @Inject constructor(
     val addTaskEvent = tasksEventChannel.receiveAsFlow()
     val receipts = receiptDao.getAllReceipts().asLiveData()
     val totalSum = receiptDao.getSum().asLiveData()
+    val receiptsChart = receiptDao.getReceiptsForChart()
 
     fun onAddResult(result: Int){
         when (result){

@@ -35,8 +35,10 @@ abstract class ReceiptDatabase :RoomDatabase(){
                     dao.insert(Receipts("6.76","07.06.2021","Ikea"))
                     dao.insert(Receipts("8.96","01.06.2021","Edeka"))
                 }
+
             }
         }
+
     }
 
 

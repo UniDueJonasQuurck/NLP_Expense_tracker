@@ -27,6 +27,9 @@
         <action
             android:id="@+id/action_historyFragment_to_scanner2"
             app:destination="@id/scanner2" />
+        <action
+            android:id="@+id/action_historyFragment_to_chartFragment2"
+            app:destination="@id/chartFragment" />
     </fragment>
     <fragment
         android:id="@+id/scanner2"
@@ -44,5 +47,12 @@
             app:argType="com.example.nlp_expense_tracker.Database.Receipts"
             app:nullable="true"
             android:defaultValue="@null" />
+        <action
+            android:id="@+id/action_scanner2_to_chartFragment"
+            app:destination="@id/chartFragment" />
     </fragment>
+    <fragment
+        android:id="@+id/chartFragment"
+        android:name="com.example.nlp_expense_tracker.fragments.Graph.ChartFragment"
+        android:label="ChartFragment" />
 </navigation>

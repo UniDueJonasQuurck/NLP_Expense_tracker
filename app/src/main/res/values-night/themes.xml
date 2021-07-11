@@ -18,10 +18,10 @@
         <item name="android:fontFamily">@font/roboto</item>
     </style>
     <style name="progressBar" parent="@style/Theme.AppCompat">
-        <item name="colorAccent">#167EC4</item>
+        <item name="colorAccent">#062459</item>
     </style>
     <style name="Button.Scan" parent="ThemeOverlay.AppCompat">
-        <item name="colorPrimary">#505050</item>
+        <item name="colorPrimary">#E28413</item>
     </style>
 
 </resources>

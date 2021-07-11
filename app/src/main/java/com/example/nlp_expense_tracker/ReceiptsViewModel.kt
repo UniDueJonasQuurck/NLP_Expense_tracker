@@ -21,7 +21,6 @@ import java.time.format.DateTimeFormatter
 import java.util.*
 import javax.inject.Inject
 
-
 class ReceiptsViewModel () {
 
 

@@ -5,7 +5,8 @@
     android:layout_width="fill_parent"
     android:layout_height="wrap_content"
     android:orientation="vertical"
-    tools:context=".fragments.Camera.Scanner">
+    tools:context=".fragments.Camera.Scanner"
+    android:clickable="true">
 
     <Button
         android:id="@+id/cameraBtn"
@@ -24,8 +25,6 @@
         android:foreground="?android:attr/selectableItemBackground"
         android:theme="@style/Button.Scan"
         android:textColor="@color/white"
-
-
         />
 
     <Button
@@ -104,7 +103,7 @@
         android:layout_marginTop="5dp"
         android:text="@string/text_total"
         android:textAlignment="center"
-        android:textColor="@color/black"
+        android:textColor="@color/white"
         android:textSize="14sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/imageView2"
@@ -118,13 +117,13 @@
         android:digits="0123456789,-"
         android:layout_marginTop="5dp"
         android:padding="10dp"
-        android:textColor="@color/black"
+        android:textColor="@color/white"
         android:textSize="14sp"
         app:layout_constraintStart_toEndOf="@+id/txtTotal"
         app:layout_constraintTop_toTopOf="@+id/imageView2"
         tools:text="@string/text_total"
         android:elevation="10dp"
-        android:backgroundTint="#505050"/>
+        android:backgroundTint="@color/white"/>
 
     <TextView
         android:id="@+id/txtDate"
@@ -134,7 +133,7 @@
         android:padding="10dp"
         android:text="@string/text_vat"
         android:textAlignment="center"
-        android:textColor="@color/black"
+        android:textColor="@color/white"
         android:textSize="14sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/txtTotal"
@@ -145,14 +144,14 @@
         android:layout_width="200dp"
         android:layout_height="wrap_content"
         android:padding="10dp"
-        android:textColor="@color/black"
+        android:textColor="@color/white"
         android:textSize="14sp"
         app:layout_constraintStart_toEndOf="@+id/txtDate"
         app:layout_constraintTop_toBottomOf="@+id/editTotal"
         tools:text="@string/text_vat"
         android:inputType="date"
         android:elevation="10dp"
-        android:backgroundTint="#505050"/>
+        android:backgroundTint="@color/white"/>
 
     <TextView
         android:id="@+id/txtStore"
@@ -163,7 +162,7 @@
         android:padding="10dp"
         android:text="@string/text_type"
         android:textAlignment="center"
-        android:textColor="@color/black"
+        android:textColor="@color/white"
         android:textSize="14sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/txtDate"
@@ -174,13 +173,13 @@
         android:layout_width="200dp"
         android:layout_height="wrap_content"
         android:padding="10dp"
-        android:textColor="@color/black"
+        android:textColor="@color/white"
         android:textSize="14sp"
         app:layout_constraintStart_toEndOf="@+id/txtStore"
         app:layout_constraintTop_toBottomOf="@+id/editDate"
         tools:text="@string/text_type"
         android:elevation="10dp"
-        android:backgroundTint="#505050"
+        android:backgroundTint="@color/white"
         android:maxLines="1"
         android:inputType="textCapSentences"/>
 

@@ -7,6 +7,7 @@ import android.content.Intent
 import android.content.pm.PackageManager
 import android.graphics.Bitmap
 import android.graphics.BitmapFactory
+import android.net.Uri
 import android.os.Build
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -51,10 +52,8 @@ class Scanner : Fragment() {
     private lateinit var  receiptsViewModel: ReceiptsViewModel
     private val viewModel: ScannerViewModel by viewModels()
     private lateinit var viewPager: ViewPager
+    lateinit var imageURI: Uri
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,savedInstanceState: Bundle?):
@@ -119,7 +118,7 @@ class Scanner : Fragment() {
 
 
     override fun onResume() { //clears textfields when switching between tabs
-        super.onResume();
+        super.onResume()
         editStore.setText("")
         editDate.setText("")
         editTotal.setText("")
@@ -129,7 +128,7 @@ class Scanner : Fragment() {
     private fun uploadAction(data: Intent) {
         try {
             val resolver = requireActivity().contentResolver
-            val stream = resolver!!.openInputStream(data.getData()!!)
+            val stream = resolver!!.openInputStream(data.data!!)
             if (::photoImage.isInitialized) photoImage.recycle()
             photoImage = BitmapFactory.decodeStream(stream)
             mlkitImage = InputImage.fromBitmap(photoImage,0)
