@@ -1,371 +1,390 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/scrollView"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".fragments.Home.HomeFragment"
-    android:clickable="true">
+    android:fillViewport="true">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:clickable="true"
+            tools:context=".fragments.Home.HomeFragment">
 
 
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="20dp"
-        android:text="Hey,\nlet's check your expenses"
-        android:textAlignment="viewStart"
-        android:textSize="32sp"
-        android:textStyle="bold"
-        android:textColor="#FBF5F3"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:elevation="10dp"/>
+            <TextView
+                android:id="@+id/textView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="45dp"
+                android:elevation="10dp"
+                android:text="Hey,\nlet's check your expenses"
+                android:textAlignment="viewStart"
+                android:textColor="#FBF5F3"
+                android:textSize="32sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
-    <TextView
-        android:id="@+id/monthlyExpense"
-        android:layout_width="330dp"
-        android:layout_height="140dp"
-        android:layout_marginTop="44dp"
-        android:background="@drawable/background_monthlyexpense"
-        android:elevation="10dp"
-        android:textAlignment="center"
-        android:textColor="#FBF5F3"
-        android:textSize="16sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.493"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView" />
+            <TextView
+                android:id="@+id/monthlyExpense"
+                android:layout_width="330dp"
+                android:layout_height="140dp"
+                android:layout_marginTop="44dp"
+                android:background="@drawable/background_monthlyexpense"
+                android:elevation="10dp"
+                android:textAlignment="center"
+                android:textColor="#FBF5F3"
+                android:textSize="16sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.493"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textView" />
 
-    <TextView
-        android:id="@+id/textView5"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:elevation="10dp"
-        android:text="Monthly Budget"
-        android:textColor="@color/white"
-        android:textSize="24dp"
-        app:layout_constraintEnd_toEndOf="@+id/monthlyExpense"
-        app:layout_constraintStart_toStartOf="@+id/monthlyExpense"
-        app:layout_constraintTop_toTopOf="@+id/monthlyExpense" />
+            <TextView
+                android:id="@+id/textView5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:elevation="10dp"
+                android:text="Monthly Budget"
+                android:textColor="@color/white"
+                android:textSize="24sp"
+                app:layout_constraintEnd_toEndOf="@+id/monthlyExpense"
+                app:layout_constraintStart_toStartOf="@+id/monthlyExpense"
+                app:layout_constraintTop_toTopOf="@+id/monthlyExpense" />
 
-    <TextView
-        android:id="@+id/textView6"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:elevation="10dp"
-        android:text="You have already spent"
-        android:textColor="@color/white"
-        android:textSize="15dp"
-        app:layout_constraintEnd_toEndOf="@+id/textView5"
-        app:layout_constraintStart_toStartOf="@+id/monthlyExpense"
-        app:layout_constraintTop_toBottomOf="@+id/textView5" />
+            <TextView
+                android:id="@+id/textView6"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:elevation="10dp"
+                android:text="You have already spent"
+                android:textColor="@color/white"
+                android:textSize="15sp"
+                app:layout_constraintEnd_toEndOf="@+id/textView5"
+                app:layout_constraintStart_toStartOf="@+id/monthlyExpense"
+                app:layout_constraintTop_toBottomOf="@+id/textView5" />
 
-    <TextView
-        android:id="@+id/monthlyPercent"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:elevation="10dp"
-        android:text="10"
-        android:textColor="@color/white"
-        android:textSize="15dp"
-        android:layout_marginStart="2dp"
-        app:layout_constraintStart_toEndOf="@+id/textView6"
-        app:layout_constraintTop_toBottomOf="@+id/textView5" />
+            <TextView
+                android:id="@+id/monthlyPercent"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="2dp"
+                android:elevation="10dp"
+                android:text="10"
+                android:textColor="@color/white"
+                android:textSize="15sp"
+                app:layout_constraintStart_toEndOf="@+id/textView6"
+                app:layout_constraintTop_toBottomOf="@+id/textView5" />
 
-    <TextView
-        android:id="@+id/textView7"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:elevation="10dp"
-        android:text="% of your"
-        android:textColor="@color/white"
-        android:textSize="15dp"
-        app:layout_constraintStart_toEndOf="@+id/monthlyPercent"
-        app:layout_constraintTop_toBottomOf="@+id/textView5" />
+            <TextView
+                android:id="@+id/textView7"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:elevation="10dp"
+                android:text="% of your"
+                android:textColor="@color/white"
+                android:textSize="15sp"
+                app:layout_constraintStart_toEndOf="@+id/monthlyPercent"
+                app:layout_constraintTop_toBottomOf="@+id/textView5" />
 
-    <TextView
-        android:id="@+id/monthlyBudgetText"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:elevation="10dp"
-        android:text="500"
-        android:textColor="@color/white"
-        android:textSize="15dp"
-        app:layout_constraintEnd_toStartOf="@+id/textView8"
-        app:layout_constraintTop_toBottomOf="@+id/textView6" />
-
-
-    <TextView
-        android:id="@+id/textView8"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:elevation="10dp"
-        android:text="€ monthly budget"
-        android:textColor="@color/white"
-        android:textSize="15dp"
-        app:layout_constraintEnd_toEndOf="@+id/textView7"
-        app:layout_constraintStart_toStartOf="@+id/textView6"
-        app:layout_constraintTop_toBottomOf="@+id/textView6" />
-
-    <ProgressBar
-        android:id="@+id/budgetProgressBar"
-        style="@style/Widget.AppCompat.ProgressBar.Horizontal"
-        android:layout_width="200dp"
-        android:layout_height="15dp"
-        android:layout_marginBottom="20dp"
-        android:elevation="10dp"
-        android:progressDrawable="@drawable/pbshape"
-        app:layout_constraintBottom_toBottomOf="@+id/monthlyExpense"
-        app:layout_constraintEnd_toEndOf="@+id/monthlyExpense"
-        app:layout_constraintStart_toStartOf="@+id/monthlyExpense"
-        app:layout_constraintTop_toBottomOf="@+id/textView8" />
-    <ImageButton
-        android:id="@+id/monthlyBudgetBtn"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:src="@drawable/ic_baseline_settings_24"
-        android:background="#E28413"
-        app:layout_constraintEnd_toEndOf="@+id/monthlyExpense"
-        app:layout_constraintTop_toTopOf="@+id/monthlyExpense"
-        android:elevation="10dp"
-        android:layout_marginRight="9dp"
-        android:layout_marginTop="3dp"
-        />
-
-    <TextView
-        android:id="@+id/actionsHeader"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:text="Recent purchases"
-        android:textColor="#FBF5F3"
-        android:textSize="20sp"
-        android:textStyle="bold"
-        app:layout_constraintStart_toStartOf="@+id/textView"
-        app:layout_constraintTop_toBottomOf="@+id/monthlyExpense"
-        />
+            <TextView
+                android:id="@+id/monthlyBudgetText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:elevation="10dp"
+                android:text="500"
+                android:textColor="@color/white"
+                android:textSize="15sp"
+                app:layout_constraintEnd_toStartOf="@+id/textView8"
+                app:layout_constraintTop_toBottomOf="@+id/textView6" />
 
 
+            <TextView
+                android:id="@+id/textView8"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:elevation="10dp"
+                android:text="€ monthly budget"
+                android:textColor="@color/white"
+                android:textSize="15sp"
+                app:layout_constraintEnd_toEndOf="@+id/textView7"
+                app:layout_constraintStart_toStartOf="@+id/textView6"
+                app:layout_constraintTop_toBottomOf="@+id/textView6" />
 
-    <TextView
-        android:id="@+id/recentPurchase1"
-        android:layout_width="150dp"
-        android:layout_height="150dp"
-        android:layout_marginTop="8dp"
-        android:background="@drawable/background_monthlyexpense"
-        android:elevation="10dp"
-        android:gravity="center_vertical|left|start"
-        android:paddingStart="10sp"
-        android:textColor="#FBF5F3"
-        android:textSize="16sp"
-        app:layout_constraintStart_toStartOf="@+id/monthlyExpense"
-        app:layout_constraintTop_toBottomOf="@+id/actionsHeader" />
+            <ProgressBar
+                android:id="@+id/budgetProgressBar"
+                style="@style/Widget.AppCompat.ProgressBar.Horizontal"
+                android:layout_width="200dp"
+                android:layout_height="15dp"
+                android:layout_marginBottom="20dp"
+                android:elevation="10dp"
+                android:progressDrawable="@drawable/pbshape"
+                app:layout_constraintBottom_toBottomOf="@+id/monthlyExpense"
+                app:layout_constraintEnd_toEndOf="@+id/monthlyExpense"
+                app:layout_constraintStart_toStartOf="@+id/monthlyExpense"
+                app:layout_constraintTop_toBottomOf="@+id/textView8" />
 
-    <TextView
-        android:id="@+id/recentPurchase1Store"
-        android:layout_width="150dp"
-        android:layout_height="50dp"
-        android:background="@drawable/background_monthlyexpense"
-        android:elevation="10dp"
-        android:gravity="center_vertical|left|start"
-        android:text="Store"
-        android:paddingStart="10sp"
-        android:textColor="#FBF5F3"
-        android:textSize="16sp"
-        app:layout_constraintBottom_toBottomOf="@+id/recentPurchase1"
-        app:layout_constraintStart_toStartOf="@+id/recentPurchase1"
-        app:layout_constraintTop_toTopOf="@+id/recentPurchase1" />
+            <ImageButton
+                android:id="@+id/monthlyBudgetBtn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="3dp"
+                android:layout_marginRight="9dp"
+                android:background="#E28413"
+                android:elevation="10dp"
+                android:src="@drawable/ic_baseline_settings_24"
+                app:layout_constraintEnd_toEndOf="@+id/monthlyExpense"
+                app:layout_constraintTop_toTopOf="@+id/monthlyExpense" />
 
-    <TextView
-        android:id="@+id/recentPurchase1Total"
-        android:layout_width="100dp"
-        android:layout_height="50dp"
-        android:background="@drawable/background_monthlyexpense"
-        android:elevation="10dp"
-        android:paddingStart="10sp"
-        android:text="24.98 €"
-        android:textColor="#FBF5F3"
-        android:textSize="16sp"
-        app:layout_constraintStart_toStartOf="@+id/recentPurchase1"
-        app:layout_constraintTop_toBottomOf="@+id/recentPurchase1Store" />
-
-    <ImageView
-        android:id="@+id/imageView3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:background="@drawable/ic_baseline_shopping_cart_24"
-        app:layout_constraintStart_toStartOf="@+id/recentPurchase1"
-        app:layout_constraintTop_toTopOf="@+id/recentPurchase1"
-        android:elevation="10dp"
-        android:layout_marginLeft="10dp"
-        android:layout_marginTop="10dp" />
-
-    <TextView
-        android:id="@+id/recentPurchase2"
-        android:layout_width="150dp"
-        android:layout_height="150dp"
-        android:layout_marginStart="25dp"
-        android:layout_marginTop="8dp"
-        android:background="@drawable/background_monthlyexpense"
-        android:elevation="10dp"
-        android:gravity="center_vertical|left|start"
-        android:paddingStart="10sp"
-        android:textColor="#FBF5F3"
-        android:textSize="16sp"
-        app:layout_constraintEnd_toEndOf="@+id/monthlyExpense"
-        app:layout_constraintHorizontal_bias="0.6"
-        app:layout_constraintStart_toEndOf="@+id/recentPurchase1"
-        app:layout_constraintTop_toBottomOf="@+id/actionsHeader" />
-
-    <ImageView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:background="@drawable/ic_baseline_shopping_cart_24"
-        app:layout_constraintStart_toStartOf="@+id/recentPurchase2"
-        app:layout_constraintTop_toTopOf="@+id/recentPurchase2"
-        android:elevation="10dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginLeft="10dp"/>
-
-    <TextView
-        android:id="@+id/recentPurchase2Store"
-        android:layout_width="150dp"
-        android:layout_height="50dp"
-        android:background="@drawable/background_monthlyexpense"
-        android:elevation="10dp"
-        android:gravity="center_vertical|left|start"
-        android:paddingStart="10sp"
-        android:text="Store"
-        android:textColor="#FBF5F3"
-        android:textSize="16sp"
-        app:layout_constraintBottom_toBottomOf="@+id/recentPurchase2"
-        app:layout_constraintStart_toStartOf="@+id/recentPurchase2"
-        app:layout_constraintTop_toTopOf="@+id/recentPurchase2" />
-
-    <TextView
-        android:id="@+id/recentPurchase2Total"
-        android:layout_width="100dp"
-        android:layout_height="50dp"
-        android:background="@drawable/background_monthlyexpense"
-        android:elevation="10dp"
-        android:paddingStart="10sp"
-        android:text="24.98 €"
-        android:textColor="#FBF5F3"
-        android:textSize="16sp"
-        app:layout_constraintStart_toStartOf="@+id/recentPurchase2"
-        app:layout_constraintTop_toBottomOf="@+id/recentPurchase2Store" />
+            <TextView
+                android:id="@+id/actionsHeader"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:text="Recent purchases"
+                android:textColor="#FBF5F3"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="@+id/textView"
+                app:layout_constraintTop_toBottomOf="@+id/monthlyExpense" />
 
 
-    <TextView
-        android:id="@+id/recentPurchase3"
-        android:layout_width="150dp"
-        android:layout_height="150dp"
-        android:layout_marginTop="25dp"
-        android:background="@drawable/background_monthlyexpense"
-        android:gravity="center_vertical|left|start"
-        android:paddingStart="10sp"
-        android:textColor="#FBF5F3"
-        android:textSize="16sp"
-        app:layout_constraintStart_toStartOf="@+id/recentPurchase1"
-        app:layout_constraintTop_toBottomOf="@+id/recentPurchase1"
-        android:elevation="10dp"
-        />
+            <TextView
+                android:id="@+id/recentPurchase1"
+                android:layout_width="150dp"
+                android:layout_height="150dp"
+                android:layout_marginTop="8dp"
+                android:background="@drawable/background_monthlyexpense"
+                android:elevation="10dp"
+                android:gravity="center_vertical|left|start"
+                android:paddingStart="10sp"
+                android:textColor="#FBF5F3"
+                android:textSize="16sp"
+                app:layout_constraintStart_toStartOf="@+id/monthlyExpense"
+                app:layout_constraintTop_toBottomOf="@+id/actionsHeader" />
 
-    <ImageView
-        android:id="@+id/imageView4"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="10dp"
-        android:layout_marginTop="10dp"
-        android:background="@drawable/ic_baseline_shopping_cart_24"
-        android:elevation="10dp"
-        app:layout_constraintStart_toStartOf="@+id/recentPurchase3"
-        app:layout_constraintTop_toTopOf="@+id/recentPurchase3" />
+            <TextView
+                android:id="@+id/recentPurchase1Store"
+                android:layout_width="150dp"
+                android:layout_height="50dp"
+                android:background="@drawable/background_monthlyexpense"
+                android:elevation="10dp"
+                android:gravity="center_vertical|left|start"
+                android:paddingStart="10sp"
+                android:text="Store"
+                android:textColor="#FBF5F3"
+                android:textSize="16sp"
+                app:layout_constraintBottom_toBottomOf="@+id/recentPurchase1"
+                app:layout_constraintStart_toStartOf="@+id/recentPurchase1"
+                app:layout_constraintTop_toTopOf="@+id/recentPurchase1" />
 
-    <TextView
-        android:id="@+id/recentPurchase3Store"
-        android:layout_width="150dp"
-        android:layout_height="50dp"
-        android:background="@drawable/background_monthlyexpense"
-        android:elevation="10dp"
-        android:gravity="center_vertical|left|start"
-        android:paddingStart="10sp"
-        android:text="Store"
-        android:textColor="#FBF5F3"
-        android:textSize="16sp"
-        app:layout_constraintBottom_toBottomOf="@+id/recentPurchase3"
-        app:layout_constraintStart_toStartOf="@+id/recentPurchase3"
-        app:layout_constraintTop_toTopOf="@+id/recentPurchase3" />
+            <TextView
+                android:id="@+id/recentPurchase1Total"
+                android:layout_width="100dp"
+                android:layout_height="50dp"
+                android:background="@drawable/background_monthlyexpense"
+                android:elevation="10dp"
+                android:paddingStart="10sp"
+                android:text="24.98 €"
+                android:textColor="#FBF5F3"
+                android:textSize="16sp"
+                app:layout_constraintStart_toStartOf="@+id/recentPurchase1"
+                app:layout_constraintTop_toBottomOf="@+id/recentPurchase1Store" />
 
-    <TextView
-        android:id="@+id/recentPurchase3Total"
-        android:layout_width="100dp"
-        android:layout_height="50dp"
-        android:background="@drawable/background_monthlyexpense"
-        android:elevation="10dp"
-        android:paddingStart="10sp"
-        android:text="24.98 €"
-        android:textColor="#FBF5F3"
-        android:textSize="16sp"
-        app:layout_constraintStart_toStartOf="@+id/recentPurchase3"
-        app:layout_constraintTop_toBottomOf="@+id/recentPurchase3Store" />
+            <ImageView
+                android:id="@+id/imageView3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/ic_baseline_shopping_cart_24"
+                android:elevation="10dp"
+                app:layout_constraintStart_toStartOf="@+id/recentPurchase1"
+                app:layout_constraintTop_toTopOf="@+id/recentPurchase1" />
 
-    <TextView
-        android:id="@+id/recentPurchase4"
-        android:layout_width="150dp"
-        android:layout_height="150dp"
-        android:background="@drawable/background_monthlyexpense"
-        android:elevation="10dp"
-        android:gravity="center_vertical|left|start"
-        android:paddingStart="10sp"
-        android:textColor="#FBF5F3"
-        android:textSize="16sp"
-        app:layout_constraintEnd_toEndOf="@+id/monthlyExpense"
-        app:layout_constraintHorizontal_bias="0.7"
-        app:layout_constraintStart_toStartOf="@+id/recentPurchase2"
-        app:layout_constraintTop_toTopOf="@+id/recentPurchase3" />
+            <TextView
+                android:id="@+id/recentPurchase2"
+                android:layout_width="150dp"
+                android:layout_height="150dp"
+                android:layout_marginStart="25dp"
+                android:layout_marginTop="8dp"
+                android:background="@drawable/background_monthlyexpense"
+                android:elevation="10dp"
+                android:gravity="center_vertical|left|start"
+                android:paddingStart="10sp"
+                android:textColor="#FBF5F3"
+                android:textSize="16sp"
+                app:layout_constraintEnd_toEndOf="@+id/monthlyExpense"
+                app:layout_constraintHorizontal_bias="0.6"
+                app:layout_constraintStart_toEndOf="@+id/recentPurchase1"
+                app:layout_constraintTop_toBottomOf="@+id/actionsHeader" />
 
-    <ImageView
-        android:id="@+id/imageView5"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="10dp"
-        android:layout_marginTop="10dp"
-        android:background="@drawable/ic_baseline_shopping_cart_24"
-        android:elevation="10dp"
-        app:layout_constraintStart_toStartOf="@+id/recentPurchase4"
-        app:layout_constraintTop_toTopOf="@+id/recentPurchase4" />
+            <ImageView
+                android:id="@+id/imageView6"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/ic_baseline_shopping_cart_24"
+                android:elevation="10dp"
+                app:layout_constraintStart_toStartOf="@+id/recentPurchase2"
+                app:layout_constraintTop_toTopOf="@+id/recentPurchase2" />
 
-    <TextView
-        android:id="@+id/recentPurchase4Store"
-        android:layout_width="150dp"
-        android:layout_height="50dp"
-        android:background="@drawable/background_monthlyexpense"
-        android:elevation="10dp"
-        android:gravity="center_vertical|left|start"
-        android:paddingStart="10sp"
-        android:text="Store"
-        android:textColor="#FBF5F3"
-        android:textSize="16sp"
-        app:layout_constraintBottom_toBottomOf="@+id/recentPurchase4"
-        app:layout_constraintStart_toStartOf="@+id/recentPurchase4"
-        app:layout_constraintTop_toTopOf="@+id/recentPurchase4" />
+            <TextView
+                android:id="@+id/recentPurchase2Store"
+                android:layout_width="150dp"
+                android:layout_height="50dp"
+                android:background="@drawable/background_monthlyexpense"
+                android:elevation="10dp"
+                android:gravity="center_vertical|left|start"
+                android:paddingStart="10sp"
+                android:text="Store"
+                android:textColor="#FBF5F3"
+                android:textSize="16sp"
+                app:layout_constraintBottom_toBottomOf="@+id/recentPurchase2"
+                app:layout_constraintStart_toStartOf="@+id/recentPurchase2"
+                app:layout_constraintTop_toTopOf="@+id/recentPurchase2" />
 
-    <TextView
-        android:id="@+id/recentPurchase4Total"
-        android:layout_width="100dp"
-        android:layout_height="50dp"
-        android:background="@drawable/background_monthlyexpense"
-        android:elevation="10dp"
-        android:paddingStart="10sp"
-        android:text="24.98 €"
-        android:textColor="#FBF5F3"
-        android:textSize="16sp"
-        app:layout_constraintStart_toStartOf="@+id/recentPurchase4"
-        app:layout_constraintTop_toBottomOf="@+id/recentPurchase4Store" />
+            <TextView
+                android:id="@+id/recentPurchase2Total"
+                android:layout_width="100dp"
+                android:layout_height="50dp"
+                android:background="@drawable/background_monthlyexpense"
+                android:elevation="10dp"
+                android:paddingStart="10sp"
+                android:text="24.98 €"
+                android:textColor="#FBF5F3"
+                android:textSize="16sp"
+                app:layout_constraintStart_toStartOf="@+id/recentPurchase2"
+                app:layout_constraintTop_toBottomOf="@+id/recentPurchase2Store" />
 
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+            <TextView
+                android:id="@+id/recentPurchase3"
+                android:layout_width="150dp"
+                android:layout_height="150dp"
+                android:layout_marginTop="25dp"
+                android:background="@drawable/background_monthlyexpense"
+                android:elevation="10dp"
+                android:gravity="center_vertical|left|start"
+                android:paddingStart="10sp"
+                android:textColor="#FBF5F3"
+                android:textSize="16sp"
+                app:layout_constraintStart_toStartOf="@+id/recentPurchase1"
+                app:layout_constraintTop_toBottomOf="@+id/recentPurchase1" />
+
+            <ImageView
+                android:id="@+id/imageView4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/ic_baseline_shopping_cart_24"
+                android:elevation="10dp"
+                app:layout_constraintStart_toStartOf="@+id/recentPurchase3"
+                app:layout_constraintTop_toTopOf="@+id/recentPurchase3" />
+
+            <TextView
+                android:id="@+id/recentPurchase3Store"
+                android:layout_width="150dp"
+                android:layout_height="50dp"
+                android:background="@drawable/background_monthlyexpense"
+                android:elevation="10dp"
+                android:gravity="center_vertical|left|start"
+                android:paddingStart="10sp"
+                android:text="Store"
+                android:textColor="#FBF5F3"
+                android:textSize="16sp"
+                app:layout_constraintBottom_toBottomOf="@+id/recentPurchase3"
+                app:layout_constraintStart_toStartOf="@+id/recentPurchase3"
+                app:layout_constraintTop_toTopOf="@+id/recentPurchase3" />
+
+            <TextView
+                android:id="@+id/recentPurchase3Total"
+                android:layout_width="100dp"
+                android:layout_height="50dp"
+                android:background="@drawable/background_monthlyexpense"
+                android:elevation="10dp"
+                android:paddingStart="10sp"
+                android:text="24.98 €"
+                android:textColor="#FBF5F3"
+                android:textSize="16sp"
+                app:layout_constraintStart_toStartOf="@+id/recentPurchase3"
+                app:layout_constraintTop_toBottomOf="@+id/recentPurchase3Store" />
+
+            <TextView
+                android:id="@+id/recentPurchase4"
+                android:layout_width="150dp"
+                android:layout_height="150dp"
+                android:background="@drawable/background_monthlyexpense"
+                android:elevation="10dp"
+                android:gravity="center_vertical|left|start"
+                android:paddingStart="10sp"
+                android:textColor="#FBF5F3"
+                android:textSize="16sp"
+                app:layout_constraintEnd_toEndOf="@+id/monthlyExpense"
+                app:layout_constraintHorizontal_bias="0.7"
+                app:layout_constraintStart_toStartOf="@+id/recentPurchase2"
+                app:layout_constraintTop_toTopOf="@+id/recentPurchase3" />
+
+            <ImageView
+                android:id="@+id/imageView5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/ic_baseline_shopping_cart_24"
+                android:elevation="10dp"
+                app:layout_constraintStart_toStartOf="@+id/recentPurchase4"
+                app:layout_constraintTop_toTopOf="@+id/recentPurchase4" />
+
+            <TextView
+                android:id="@+id/recentPurchase4Store"
+                android:layout_width="150dp"
+                android:layout_height="50dp"
+                android:background="@drawable/background_monthlyexpense"
+                android:elevation="10dp"
+                android:gravity="center_vertical|left|start"
+                android:paddingStart="10sp"
+                android:text="Store"
+                android:textColor="#FBF5F3"
+                android:textSize="16sp"
+                app:layout_constraintBottom_toBottomOf="@+id/recentPurchase4"
+                app:layout_constraintStart_toStartOf="@+id/recentPurchase4"
+                app:layout_constraintTop_toTopOf="@+id/recentPurchase4" />
+
+            <TextView
+                android:id="@+id/recentPurchase4Total"
+                android:layout_width="100dp"
+                android:layout_height="50dp"
+                android:background="@drawable/background_monthlyexpense"
+                android:elevation="10dp"
+                android:paddingStart="10sp"
+                android:text="24.98 €"
+                android:textColor="#FBF5F3"
+                android:textSize="16sp"
+                app:layout_constraintStart_toStartOf="@+id/recentPurchase4"
+                app:layout_constraintTop_toBottomOf="@+id/recentPurchase4Store" />
+
+            <com.github.mikephil.charting.charts.LineChart
+                android:id="@+id/lineChart"
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                android:layout_marginTop="20dp"
+                android:elevation="10dp"
+                android:padding="9dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/recentPurchase4"
+                />
+
+
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>

@@ -21,7 +21,6 @@ class PurchaseViewmodel @Inject constructor(
     val addTaskEvent = tasksEventChannel.receiveAsFlow()
     val receipts = receiptDao.getAllReceipts().asLiveData()
     val totalSum = receiptDao.getSum().asLiveData()
-    val receiptsChart = receiptDao.getReceiptsForChart()
 
     fun onAddResult(result: Int){
         when (result){

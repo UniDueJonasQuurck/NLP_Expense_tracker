@@ -20,7 +20,7 @@ import com.example.nlp_expense_tracker.Database.ReceiptDatabase
 import com.example.nlp_expense_tracker.Database.Receipts
 import com.example.nlp_expense_tracker.R
 import com.example.nlp_expense_tracker.databinding.FragmentHistoryBinding
-import com.example.nlp_expense_tracker.fragments.Graph.ChartFragment
+
 import com.google.android.material.snackbar.Snackbar
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.flow.Flow
@@ -71,13 +71,6 @@ class HistoryFragment : Fragment(R.layout.fragment_history) {
                      viewModel.onSwipe(receipt)
                 }
             }).attachToRecyclerView(recyclerView)
-
-            buttonChart.apply {
-                setOnClickListener {
-                   replaceFragment(ChartFragment())
-                }
-            }
-
         }
 
 
@@ -103,10 +96,5 @@ class HistoryFragment : Fragment(R.layout.fragment_history) {
                 }
             }
         }
-    }
-    private fun replaceFragment(fragment: Fragment) {
-        val transaction = requireActivity().supportFragmentManager.beginTransaction()
-        transaction.replace(R.id.fragmentChart, fragment)
-        transaction.commitNowAllowingStateLoss()
     }
 }

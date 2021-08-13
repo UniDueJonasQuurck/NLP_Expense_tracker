@@ -196,7 +196,7 @@ class Scanner : Fragment() {
         startActivityForResult(receiptsViewModel.uploadIntent(),REQUEST_CODE_GALLERY)
     }
 
-    fun showDialogCamera() {
+    private fun showDialogCamera() {
         if (dialogStatus) {
             startCamera()
             return

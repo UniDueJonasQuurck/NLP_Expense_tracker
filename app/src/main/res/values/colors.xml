@@ -14,4 +14,6 @@
     <color name="yellow">#F2C640</color>
     <color name="red">#D81B60</color>
     <color name="blue">#9999FF</color>
+    <color name="tiles">#E28413</color>
+
 </resources>

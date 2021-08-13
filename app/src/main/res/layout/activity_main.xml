@@ -7,6 +7,7 @@
     tools:context=".MainActivity"
     android:background="@drawable/backgroundcolor">
 
+
     <com.google.android.material.appbar.AppBarLayout
         android:id="@+id/appBarLayout"
         android:layout_width="match_parent"
@@ -22,7 +23,7 @@
             app:tabGravity="fill"
             app:tabInlineLabel="true"
             app:tabMode="fixed"
-            app:tabTextColor="@android:color/white"
+            app:tabTextColor="#1e2022"
             app:tabBackground="@drawable/backgroundtab"
             app:tabIconTint="#c9d6df"
             app:tabIndicatorColor="#c9d6df"
@@ -30,17 +31,22 @@
 
     </com.google.android.material.appbar.AppBarLayout>
 
-<com.example.nlp_expense_tracker.ViewPagerCustom
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:id="@+id/viewPager"
-    android:layout_below="@+id/appBarLayout"
-    app:layout_behavior="@string/appbar_scrolling_view_behavior"
-    />
-    <FrameLayout
+    <com.example.nlp_expense_tracker.ViewPagerCustom
+        android:id="@+id/viewPager"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:id="@+id/fragmentChart"/>
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/appBarLayout"
+        android:layout_marginBottom="50dp"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior"
+        app:layout_constraintBottom_toTopOf="@+id/appBarLayout"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" >
+
+        <FrameLayout
+            android:id="@+id/fragmentChart"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+    </com.example.nlp_expense_tracker.ViewPagerCustom>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,28 +1,27 @@
 package com.example.nlp_expense_tracker.fragments.Home
 
 
+
+import android.graphics.Color
 import android.os.Bundle
-import android.preference.PreferenceManager
-import android.text.Spannable
-import android.text.SpannableString
-import android.text.style.RelativeSizeSpan
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ProgressBar
 import android.widget.SeekBar
 import android.widget.TextView
-import android.widget.Toast
+import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
-import androidx.lifecycle.LifecycleOwner
 import androidx.viewpager.widget.ViewPager
 import com.example.nlp_expense_tracker.R
-
 import com.example.nlp_expense_tracker.databinding.FragmentHomeBinding
 import com.example.nlp_expense_tracker.fragments.History.PurchaseViewmodel
+import com.github.mikephil.charting.charts.LineChart
+import com.github.mikephil.charting.components.XAxis
+import com.github.mikephil.charting.data.Entry
+import com.github.mikephil.charting.data.LineData
+import com.github.mikephil.charting.data.LineDataSet
 import dagger.hilt.android.AndroidEntryPoint
-import kotlin.math.max
 
 
 @AndroidEntryPoint
@@ -39,6 +38,8 @@ class HomeFragment : Fragment() {
     private lateinit var textView4: TextView
     private lateinit var monthlyPercent: TextView
     private lateinit var monthlyBudgetText: TextView
+    private lateinit var lineChart: LineChart
+    private lateinit var tvPrice: TextView
 
 
     override fun onCreateView(
@@ -52,6 +53,7 @@ class HomeFragment : Fragment() {
         budgetProgressBar = view.findViewById(R.id.budgetProgressBar)
         monthlyBudgetText = view.findViewById(R.id.monthlyBudgetText)
         monthlyPercent = view.findViewById(R.id.monthlyPercent)
+        lineChart = view.findViewById(R.id.lineChart)
 
 
         val binding = FragmentHomeBinding.bind(view)
@@ -135,9 +137,62 @@ class HomeFragment : Fragment() {
         calculatePercent()
         changeProgress()
         setBudget()
+        val entries = ArrayList<Entry>()
+
+//Part2
+        entries.add(Entry(1.1f, 15.79f))
+        entries.add(Entry(2.1f, 32.69f))
+        entries.add(Entry(3.9f, 7.51f))
+        entries.add(Entry(4.4f, 20.89f))
+        entries.add(Entry(5.4f, 6.98f))
+        entries.add(Entry(6.3f, 5.99f))
+        entries.add(Entry(7.7f, 15.99f))
+        entries.add(Entry(8.9f, 90.21f))
+        entries.add(Entry(9.3f, 7.20f))
+        entries.add(Entry(10.3f, 1.90f))
+        entries.add(Entry(11.3f, 2.09f))
+        entries.add(Entry(15.4f, 1.19f))
+        entries.add(Entry(16.4f, 1.60f))
+
+//Part3
+        val vl = LineDataSet(entries, "Your expenses")
+
+//Part4
+        vl.setDrawValues(false)
+        vl.setDrawFilled(true)
+        vl.lineWidth = 3f
+        vl.setColor(Color.parseColor("#E28413"))
+        vl.setCircleColor(Color.WHITE)
+
+//Part5
+        lineChart.xAxis.labelRotationAngle = 0f
+
+//Part6
+        lineChart.data = LineData(vl)
+
+//Part8
+        lineChart.setTouchEnabled(true)
+        lineChart.setPinchZoom(true)
+
+//Part9
+        lineChart.description.text = "Your Expenses"
+        lineChart.setNoDataText("No forex yet!")
+
+
+        val xAxis: XAxis = lineChart.xAxis
+        xAxis.position = XAxis.XAxisPosition.BOTTOM
+
+        lineChart.axisLeft.textColor = Color.WHITE
+        lineChart.xAxis.textColor = Color.WHITE
+        lineChart.legend.textColor = Color.WHITE
+        lineChart.description.textColor = Color.WHITE
+        lineChart.setGridBackgroundColor(Color.parseColor("#E28413"))
+
+
+
         return view
     }
-    fun showMessageBox(){
+    private fun showMessageBox(){
 
         val mainView = requireActivity().layoutInflater.inflate(R.layout.fragment_monthly_expense, null)
         seekBar = mainView.findViewById(R.id.seekBar)
@@ -182,5 +237,8 @@ class HomeFragment : Fragment() {
     fun setBudget(){
         monthlyBudgetText.text = monthlyBudget.toString()
     }
+
+
+
 
 }

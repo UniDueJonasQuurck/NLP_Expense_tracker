@@ -3,7 +3,7 @@ package com.example.nlp_expense_tracker.fragments
 import okio.Utf8.size
 import java.util.ArrayList
 
-fun String.findFloat(): ArrayList<Float> { //Eine Array aus all den float zahlen wird erstellt
+fun String.findFloat(): ArrayList<Float> {
     //get digits from result
     if (this.isEmpty()) return ArrayList<Float>()
     val originalResult = ArrayList<Float>()
@@ -16,11 +16,11 @@ fun String.findFloat(): ArrayList<Float> { //Eine Array aus all den float zahlen
 }
 
 fun String.getBetrag(): String {
-    if (this.isEmpty()) return "" ///Aus dem Input wird mit .split eine Liste von Strings erstellt, wir lassen uns die betimmte stelle aus dem Array gegeben
+    if (this.isEmpty()) return ""
     return this.split("\n").let {it[it.size -2]}
 }
 
-fun String.getStore(): String { ///Aus dem Input wird mit .split eine Liset von Strigns erstellt, wir lassen uns die betimmte stelle aus dem Array gegeben
+fun String.getStore(): String {
     if (this.isEmpty()) return ""
     return this.split("\n").get(0)
 }

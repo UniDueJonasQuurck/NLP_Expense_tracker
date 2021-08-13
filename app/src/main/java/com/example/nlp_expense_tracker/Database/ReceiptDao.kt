@@ -9,9 +9,6 @@ interface ReceiptDao {
         @Query("SELECT * FROM receipt_table ORDER BY date DESC")
         fun getAllReceipts(): Flow<List<Receipts>>
 
-        @Query("SELECT * FROM receipt_table ORDER BY date DESC")
-        fun getReceiptsForChart(): List<Receipts>
-
         @Query("SELECT SUM(total)AS sum_total FROM receipt_table")
         fun getSum(): Flow<String>
 
