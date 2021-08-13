@@ -146,7 +146,7 @@ class Scanner : Fragment() {
         }
     }
 
-    @RequiresApi(Build.VERSION_CODES.O)
+
     private fun textRecognitionAction() {
 
         var text = ""

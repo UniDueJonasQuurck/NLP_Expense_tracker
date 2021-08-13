@@ -51,7 +51,7 @@ class ReceiptsViewModel () {
         return pictureIntent
     }
 
-    @RequiresApi(Build.VERSION_CODES.O)
+
     fun getReceipts(text: String): Receipts {
         val originalResult = text.findFloat()
         if (originalResult.isEmpty()) return Receipts("","","")
