@@ -13,24 +13,31 @@ Overall goal of this project is to create a viable, easy overview of expenses an
 The apps recognition of natural language is based on googles MLKIT on device OCR recognition.
 In this stage of development this app is only suited for german receipts, as we coded this app to fit for this exact receipt format (fonts, structure, dateformat)
 
-It is written in Kotlin and should be easy to use on almost every Android based Device running Android Version XXXXXX . 
+It is written in Kotlin and should be easy to use on almost every Android based Device running Android Version 10 . 
 Pictures of the receipts can be taken directly in the application, but also imported from local gallery for convienience.
 
 Screenshots of app usage:
 
 ## Startup
-----------link-----------
+![](https://user-images.githubusercontent.com/83307903/130647167-00944e51-322a-4f09-83e0-b57af543b9ce.gif)
 
 
 ## Homefragment
-----------link-----------
+![](https://user-images.githubusercontent.com/83307903/130647295-c073ca7e-ea2f-48a2-bf48-2edef418ba60.png)
+
+
+
+
 
 
 ## Camerafragment
-----------link-----------
+![](https://user-images.githubusercontent.com/83307903/130647449-f9bcf4a6-d927-461d-b696-662a41d5d3a4.png)
+
 
 ## Purchase History
-----------link-----------
+![](https://user-images.githubusercontent.com/83307903/130647500-cc935748-3829-4dff-949f-33f830ca7d24.png)
+
 
 ## Graph
-----------link-----------
+![](https://user-images.githubusercontent.com/83307903/130647409-9537ce28-87b4-4af2-b3fd-bdbf1119b47c.png)
+
