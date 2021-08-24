@@ -13,7 +13,7 @@ Overall goal of this project is to create a viable, easy overview of expenses an
 
 The apps recognition of natural language is based on googles MLKIT on device OCR recognition option.
 In this stage of development this app is only suited for german receipts, as we coded this app to fit for this exact receipt format (fonts, structure).
-Further patches could include the support for different languages, dateformats and currencies.
+Further patches could include the support for different languages, dateformats and currencies. But also features which let the user split bills among collegues, roommates or friends.
 
 The app is written in Kotlin and should be easy to use and setup on every Android based device running on Android version 10. 
 Pictures of the receipts can be taken directly in the application, but also imported from the local gallery for convienience.
