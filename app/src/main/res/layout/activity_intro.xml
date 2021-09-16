@@ -4,13 +4,15 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Intro">
+    tools:context=".Intro"
+    android:background="@color/black"
+    >
 
     <ImageView
         android:id="@+id/hintergrund"
 
         android:layout_width="wrap_content"
-        android:layout_height="900dp"
+        android:layout_height="match_parent"
         android:src="@drawable/bg"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

@@ -25,7 +25,8 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.NLP_Expense_tracker"
         android:usesCleartextTraffic="true">
-        <activity android:name=".Intro">
+        <activity android:name=".Intro"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -45,7 +46,8 @@
 
         <activity
             android:name=".MainActivity"
-            android:windowSoftInputMode="adjustPan">
+            android:windowSoftInputMode="adjustPan"
+            >
         </activity>
     </application>
 

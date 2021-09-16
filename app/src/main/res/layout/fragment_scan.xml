@@ -63,6 +63,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/editStore"
         app:layout_constraintTop_toBottomOf="@+id/imageView2"
+        android:color="#E28413"
         />
 
 

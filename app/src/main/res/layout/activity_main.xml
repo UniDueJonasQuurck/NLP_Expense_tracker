@@ -27,6 +27,7 @@
             app:tabBackground="@drawable/backgroundtab"
             app:tabIconTint="#c9d6df"
             app:tabIndicatorColor="#c9d6df"
+            app:tabMaxWidth="0dp"
             />
 
     </com.google.android.material.appbar.AppBarLayout>
